@@ -73,20 +73,20 @@ export default function Page() {
   const fileInputRef = useRef();
 
   function addImage(file) {
-    if (!file) return;
-    const url = URL.createObjectURL(file);
-    const id = Date.now();
-    setElements((prev) => [
-      ...prev,
-      {
-        id,
-        kind: "image",
-        payload: { src: url, name: file.name },
-        transform: { x: 60, y: 60, sx: 1, rot: 0, z: id },
-      },
-    ]);
-    setFocusedId(id);
-  }
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  const id = Date.now();
+  setElements((prev) => [
+    ...prev,
+    {
+      id,
+      kind: "image",
+      payload: { src: url, name: file.name },
+      transform: { x: 60, y: 60, sx: 1, rot: 0, z: id },
+    },
+  ]);
+  setFocusedId(id);
+}
 
   function addText() {
     const id = Date.now();
